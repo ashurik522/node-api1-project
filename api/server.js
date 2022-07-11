@@ -18,10 +18,10 @@ server.get('/api/users', (req, res) => {
 //gets users by id
 server.get('/api/users/:id', (req, res) => {
     const { id } = req.params;
-    console.log(id)
+
     Users.findById(id).then(user => {
         if(user == null){
-            res.status(404).json({ message:'User not found'})
+            res.status(404).json({message: "The user with the specified ID does not exist"})
         } else {
             res.json(user)
         }
